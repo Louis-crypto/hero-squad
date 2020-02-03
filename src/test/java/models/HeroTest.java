@@ -20,6 +20,9 @@ public class HeroTest {
     public void getName_canObtainValueOfName_String(){
         Hero hero = myHero();
         assertEquals("Dracula", hero.getName());
+        assertEquals(21, hero.getAge());
+        assertEquals("speed", hero.getSuperpower());
+        assertEquals("sun", hero.getWeakness());
     }
 
     @Before
