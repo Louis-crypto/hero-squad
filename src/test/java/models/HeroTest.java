@@ -16,6 +16,11 @@ public class HeroTest {
         Hero hero = myHero();
         assertEquals(true, hero instanceof Hero);
     }
+    @Test
+    public void getName_canObtainValueOfName_String(){
+        Hero hero = myHero();
+        assertEquals("Dracula", hero.getName());
+    }
 
     @Before
     public void setUp() throws Exception {

@@ -18,7 +18,9 @@ public class Hero {
         listOfHeroes.add(this);
         this.id = listOfHeroes.size();
     }
-
+    public String getName(){
+        return name;
+    }
 
 }
 
