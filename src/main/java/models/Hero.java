@@ -19,5 +19,6 @@ public class Hero {
         this.id = listOfHeroes.size();
     }
 
+
 }
 
