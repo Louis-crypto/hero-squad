@@ -12,6 +12,8 @@ public class App {
 
     get("/", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
+        ArrayList<Hero> hero = Hero.getAll();
+        model.put("hero", hero);
         return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -35,8 +37,10 @@ public class App {
         return new ModelAndView(model, "squad-form.hbs");
     }, new HandlebarsTemplateEngine());
 
-    post("squad/new", (req, res) ->{
-        Map<String, Object> model = new HashMap<>();
-    })
+//    post("squad/new", (req, res) ->{
+//        Map<String, Object> model = new HashMap<>();
+//        String name = req.queryParams("name");
+//        String cause = req.queryParams("cause");
+//    })
     }
 }

@@ -1,0 +1,15 @@
+{{#partial "content"}}
+
+    <h1>Create your Squad</h1>
+
+    <form action="squad/new" method="post">
+        <label for="name">Enter your squads name</label>
+        <input class="form-control form-control-lg" id="name" name="name" type="text"><br>
+        <label for="age">Enter your squads cause</label>
+        <input class="form-control form-control-lg" id="cause" name="cause" type="text"><br>
+        <button type="submit" class="btn btn-outline-secondary">Create Squad</button>
+    </form>
+
+{{/partial}}
+
+{{> layout.hbs}}
