@@ -18,24 +18,49 @@ public class Hero {
         listOfHeroes.add(this);
         this.id = listOfHeroes.size();
     }
+
     public String getName(){
         return name;
     }
+
     public int getAge(){
         return age;
     }
+
     public int getId(){
         return id;
     }
+
     public String getSuperPower(){
         return superPower;
     }
+
     public String getWeakness(){
         return weakness;
     }
+
     public static ArrayList<Hero> getAll(){
         return listOfHeroes;
     }
 
+    public static void clearAll(){
+        listOfHeroes.clear();
+    }
+
+    public void setName(){
+        this.name = name;
+    }
+
+    public void setAge(){
+        this.age = age;
+    }
+
+    public void setSuperPower(){
+        this.superPower = superPower;
+    }
+
+    public void setWeakness(){
+        this.weakness = weakness;
+    }
 }
 

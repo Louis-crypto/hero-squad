@@ -11,6 +11,11 @@ public class HeroTest {
         return new Hero("Dracula",70,"speed","sunlight");
     }
 
+    @After
+    public void tearDown() throws Exception {
+        Hero.clearAll();
+    }
+
     @Test
     public void newHeroGetsCorrectlyInstantiated_true() {
         Hero hero = myHero();
@@ -31,16 +36,18 @@ public class HeroTest {
         Hero hero = myHero();
         Hero mySecondHero = new Hero("Ragnar", 40, "sword","water");
         assertEquals(2, Hero.getAll().size());
-        assertEquals(2, mySecondHero.getId());
     }
 
+    @Test
+    public void allHeroesAreAssignedAnId_2(){
+        Hero hero = myHero();
+        Hero mySecondHero = new Hero("Ragnar", 40, "sword","water");
+        assertEquals(2, mySecondHero.getId());
+    }
 
     @Before
     public void setUp() throws Exception {
     }
 
-    @After
-    public void tearDown() throws Exception {
-    }
 
 }
