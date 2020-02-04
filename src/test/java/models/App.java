@@ -16,5 +16,15 @@ public class App {
         Map<String, Object> model = new HashMap<>();
         return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
+    post("hero/new", (req, res) ->{
+        Map<String, Object> model = new HashMap<>();
+        String name = req.queryParams("name");
+        int age = Integer.parseInt(req.queryParams("age"));
+        String superPower = req.queryParams("superPower");
+        String weakness = req.queryParams("weak");
+        Hero hero = new Hero(name, age, superPower, weakness);
+        return new ModelAndView(model, "success.hbs");
+    }, new HandlebarsTemplateEngine());
     }
 }
