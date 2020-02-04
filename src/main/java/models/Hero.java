@@ -24,10 +24,18 @@ public class Hero {
     public int getAge(){
         return age;
     }
+    public int getId(){
+        return id;
+    }
     public String getSuperPower(){
         return superPower;
     }
-    public
+    public String getWeakness(){
+        return weakness;
+    }
+    public static ArrayList<Hero> getAll(){
+        return listOfHeroes;
+    }
 
 }
 
