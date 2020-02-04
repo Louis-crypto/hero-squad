@@ -7,22 +7,18 @@
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <a class="navbar-brand" href="#">HERO SQUAD</a>
+    <h4>HERO SQUAD</h4>
+    <img src="/images/heroeslogo.jpeg" width="50" height="50" alt="Heroes logo">
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
         <div class="navbar-nav">
-            <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
-            <a class="nav-item nav-link" href="#">Create A Hero</a>
+            <a class="nav-item nav-link active" href="/">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/hero/new">Create A Hero</a>
             <a class="nav-item nav-link" href="#">Create A Squad</a>
         </div>
     </div>
 </nav>
 <div class="container">
     <!--begin main template-->
-    <div class="page-header">
-        <img src="/images/caspar-rubin-224229.jpg" width="70%">
-        <h1>Welcome to my Epicodus Blog. <small>A journey into code!</small></h1>
-    </div>
-
     <div class="col-md-12">
         {{#block "content"}}
         {{/block}}

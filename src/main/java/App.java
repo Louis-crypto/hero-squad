@@ -1,5 +1,3 @@
-package models;
-
 import java.util.ArrayList;
 import java.util.Map;
 import java.util.HashMap;
@@ -17,6 +15,11 @@ public class App {
         return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
+    get("/hero/new", (req, res) ->{
+        Map<String, Object> model = new HashMap<>();
+        return new ModelAndView(model, "hero-form.hbs");
+    }, new HandlebarsTemplateEngine());
+
     post("hero/new", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
         String name = req.queryParams("name");
@@ -26,5 +29,14 @@ public class App {
         Hero hero = new Hero(name, age, superPower, weakness);
         return new ModelAndView(model, "success.hbs");
     }, new HandlebarsTemplateEngine());
+
+    get("/squad/new", (req, res) ->{
+        Map<String, Object> model = new HashMap<>();
+        return new ModelAndView(model, "squad-form.hbs");
+    }, new HandlebarsTemplateEngine());
+
+    post("squad/new", (req, res) ->{
+        Map<String, Object> model = new HashMap<>();
+    })
     }
 }
