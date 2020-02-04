@@ -10,37 +10,42 @@ public class App {
     public static void main(String[] args){
     staticFileLocation("/public");
 
+//    set index.hbs as home page
     get("/", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
-        ArrayList<Hero> hero = Hero.getAll();
-        model.put("hero", hero);
+        ArrayList<Hero> newHero = Hero.getAll();
+        model.put("hero", newHero);
         return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
 
-    get("/hero/new", (req, res) ->{
+//    display create hero form
+    get("/heroes/new", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
         return new ModelAndView(model, "hero-form.hbs");
-    }, new HandlebarsTemplateEngine());
+        }, new HandlebarsTemplateEngine());
 
-    post("hero/new", (req, res) ->{
+//        submit new hero
+    post("/heroes/new", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
         String name = req.queryParams("name");
         int age = Integer.parseInt(req.queryParams("age"));
         String superPower = req.queryParams("superPower");
-        String weakness = req.queryParams("weak");
-        Hero hero = new Hero(name, age, superPower, weakness);
+        String weakness = req.queryParams("weakness");
+        Hero newHero = new Hero(name, age, superPower, weakness);
+        model.put("hero", newHero);
         return new ModelAndView(model, "success.hbs");
     }, new HandlebarsTemplateEngine());
 
-    get("/squad/new", (req, res) ->{
+
+    get("/squads/new", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
         return new ModelAndView(model, "squad-form.hbs");
     }, new HandlebarsTemplateEngine());
 
-//    post("squad/new", (req, res) ->{
-//        Map<String, Object> model = new HashMap<>();
-//        String name = req.queryParams("name");
-//        String cause = req.queryParams("cause");
-//    })
+    post("squad/new", (req, res) ->{
+        Map<String, Object> model = new HashMap<>();
+        String name = req.queryParams("name");
+        String cause = req.queryParams("cause");
+    })
     }
 }
