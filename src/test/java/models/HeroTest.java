@@ -45,6 +45,19 @@ public class HeroTest {
         assertEquals(2, mySecondHero.getId());
     }
 
+    @Test
+    public void allSettersCanResetValues(){
+        Hero hero = myHero();
+        hero.setName("Ragnar");
+        hero.setAge(40);
+        hero.setSuperPower("sword");
+        hero.setWeakness("water");
+        assertEquals("Ragnar", hero.getName());
+        assertEquals(40, hero.getAge());
+        assertEquals("sword", hero.getSuperPower());
+        assertEquals("water", hero.getWeakness());
+    }
+
     @Before
     public void setUp() throws Exception {
     }

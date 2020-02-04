@@ -47,19 +47,19 @@ public class Hero {
         listOfHeroes.clear();
     }
 
-    public void setName(){
+    public void setName(String name){
         this.name = name;
     }
 
-    public void setAge(){
+    public void setAge(int age){
         this.age = age;
     }
 
-    public void setSuperPower(){
+    public void setSuperPower(String superPower){
         this.superPower = superPower;
     }
 
-    public void setWeakness(){
+    public void setWeakness(String weakness){
         this.weakness = weakness;
     }
 }
