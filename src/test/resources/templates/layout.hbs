@@ -1,16 +1,21 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>{{#block "title"}}Blog{{/block}}</title>
+    <title>{{#block "title"}}HERO SQUAD{{/block}}</title>
 
     <link rel='stylesheet' href='https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css'>
 </head>
 <body>
-<ul class="nav nav-tabs">
-    <li role="presentation" class="active"><a href="#">Home</a></li>
-    <li role="presentation"><a href="/posts">See All Posts</a></li>
-    <li role="presentation"><a href="/posts/new">Add a New Post</a></li>
-</ul>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#">HERO SQUAD</a>
+    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+            <a class="nav-item nav-link active" href="#">Home<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="#">Create A Hero</a>
+            <a class="nav-item nav-link" href="#">Create A Squad</a>
+        </div>
+    </div>
+</nav>
 <div class="container">
     <!--begin main template-->
     <div class="page-header">
