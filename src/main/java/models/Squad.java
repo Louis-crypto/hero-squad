@@ -16,4 +16,12 @@ public class Squad {
         listOfSquads.add(this);
         this.squadId = listOfSquads.size();
     }
+
+    public String getSquadName() {
+        return squadName;
+    }
+
+    public void setSquadName(String squadName) {
+        this.squadName = squadName;
+    }
 }
