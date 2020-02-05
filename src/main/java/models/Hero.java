@@ -23,44 +23,56 @@ public class Hero {
         return name;
     }
 
-    public int getAge(){
-        return age;
-    }
-
-    public int getId(){
-        return id;
-    }
-
-    public String getSuperPower(){
-        return superPower;
-    }
-
-    public String getWeakness(){
-        return weakness;
-    }
-
-    public static ArrayList<Hero> getAll(){
-        return listOfHeroes;
-    }
-
-    public static void clearAll(){
-        listOfHeroes.clear();
-    }
-
     public void setName(String name){
         this.name = name;
+    }
+
+    public int getAge(){
+        return age;
     }
 
     public void setAge(int age){
         this.age = age;
     }
 
+    public String getSuperPower(){
+        return superPower;
+    }
+
     public void setSuperPower(String superPower){
         this.superPower = superPower;
+    }
+
+    public String getWeakness(){
+        return weakness;
     }
 
     public void setWeakness(String weakness){
         this.weakness = weakness;
     }
+
+    public int getId(){
+        return id;
+    }
+
+    public static ArrayList<Hero> getAll(){
+        return listOfHeroes;
+    }
+
+    public static Hero findById(int id){
+        return listOfHeroes.get(id-1);
+    }
+
+    public static void clearAll(){
+        listOfHeroes.clear();
+    }
+
+
+
+
+
+
+
+
 }
 

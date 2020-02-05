@@ -10,7 +10,7 @@ public class App {
     public static void main(String[] args){
     staticFileLocation("/public");
 
-//    set index.hbs as home page
+//    show all heroes
     get("/", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
         ArrayList<Hero> newHero = Hero.getAll();
@@ -36,16 +36,24 @@ public class App {
         return new ModelAndView(model, "success.hbs");
     }, new HandlebarsTemplateEngine());
 
+    get("/hero/:id", (req, res) ->{
+        Map<String, Object> model = new HashMap<>();
+        int heroId = Integer.parseInt(req.queryParams(":id"));
+        Hero selectedHero = Hero.findById(heroId);
+        model.put("hero", selectedHero);
+        return new ModelAndView(model, "hero-detail.hbs");
+    }, new HandlebarsTemplateEngine());
 
+//show new squad form
     get("/squads/new", (req, res) ->{
         Map<String, Object> model = new HashMap<>();
         return new ModelAndView(model, "squad-form.hbs");
     }, new HandlebarsTemplateEngine());
 
-    post("squad/new", (req, res) ->{
-        Map<String, Object> model = new HashMap<>();
-        String name = req.queryParams("name");
-        String cause = req.queryParams("cause");
-    })
+//    post("squad/new", (req, res) ->{
+//        Map<String, Object> model = new HashMap<>();
+//        String name = req.queryParams("name");
+//        String cause = req.queryParams("cause");
+//    })
     }
 }

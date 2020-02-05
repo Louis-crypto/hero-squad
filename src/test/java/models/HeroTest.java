@@ -58,6 +58,13 @@ public class HeroTest {
         assertEquals("water", hero.getWeakness());
     }
 
+    @Test
+    public void canFindPostById_testHero(){
+        Hero testHero = myHero();
+        Hero mySecondHero = new Hero("Ragnar", 40, "sword","water");
+        assertEquals(testHero, Hero.findById(1));
+    }
+
     @Before
     public void setUp() throws Exception {
     }
