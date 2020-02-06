@@ -1,18 +1,32 @@
 {{#partial "content"}}
 
-    <h1>WELCOME TO HERO SQUAD</h1>
+    <h1>Welcome to hero squad {{userName}}</h1>
 
-    {{#if hero}}
-        {{#each hero}}
-            <p>Your hero</p>
-            <p>{{name}}</p>
-            <p>{{superPower}}</p>
-            <p>{{weakness}}</p>
-            <a href="/hero/{{id}}">About this hero</a>
-            {{/each}}
-        {{else}}
-        <p>You have no heroes yet</p>
-        {{/if}}
+<!--    <div class="row">-->
+<!--        <div class="col-md-6">-->
+<!--        {{#if createdHero}}-->
+<!--            {{#each createdHero}}-->
+<!--                <p>Your hero</p>-->
+<!--                <p>{{ name }}</p>-->
+<!--                <p>{{ superPower }}</p>-->
+<!--                <p>{{ weakness }}</p>-->
+<!--            {{/each}}-->
+<!--        {{else}}-->
+<!--            <p>You have no heroes yet</p>-->
+<!--        {{/if}}-->
+<!--        </div>-->
+<!--        <div class="col-md-6">-->
+<!--    {{#if createdSquad}}-->
+<!--        {{#each createdSquad}}-->
+<!--            <p>Your squad</p>-->
+<!--            <p>{{squadName}}</p>-->
+<!--            <p>{{course}}</p>-->
+<!--        {{/each}}-->
+<!--    {{else}}-->
+<!--        <p>You have not created any squads yet</p>-->
+<!--    {{/if}}-->
+<!--        </div>-->
+<!--    </div>-->
 
 {{/partial}}
 
