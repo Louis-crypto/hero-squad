@@ -7,14 +7,14 @@ public class Squad {
     private String squadName;
     private String course;
     public static boolean hasMaxMembers = false;
-    public static boolean createdHero;
+    public static boolean createdHero = false;
     private int squadId;
     private static  ArrayList <Hero> listOfHeroes = new ArrayList<>();
     private static ArrayList<Squad> listOfSquads = new ArrayList<>();
 
     public Squad(String squadName, String course, Hero hero){
         this.squadName = squadName;
-        this.course =course;
+        this.course = course;
         listOfSquads.add(this);
         this.squadId = listOfSquads.size();
         heroToAdd(hero.getId());
@@ -36,7 +36,7 @@ public class Squad {
         this.squadName = squadName;
     }
 
-    public String getCause() {
+    public String getCourse() {
         return course;
     }
 
@@ -44,8 +44,8 @@ public class Squad {
         return squadId;
     }
 
-    public void setCause(String cause) {
-        this.course = cause;
+    public void setCourse(String course) {
+        this.course = course;
     }
 
     public static ArrayList<Squad> getAllSquads(){

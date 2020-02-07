@@ -52,23 +52,31 @@ public class App {
         post("/heroes/new", (req, res) ->{
             Map<String, Object> model = new HashMap<>();
             String name = req.queryParams("name");
+            req.session().attribute("name", name);
+            model.put("name", name);
+
             int age = Integer.parseInt(req.queryParams("age"));
+            req.session().attribute("age", age);
+            model.put("age", age);
+
             String superPower = req.queryParams("superPower");
+            req.session().attribute("superPower", superPower);
+            model.put("superPower", superPower);
+
             String weakness = req.queryParams("weakness");
+            req.session().attribute("weakness", weakness);
+            model.put("weakness", weakness);
+
             Hero newHero = new Hero(name, age, superPower, weakness);
+            req.session().attribute("hero", newHero);
+            model.put("hero", newHero);
+
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
         //  show new squad form
         get("/squads/new", (req, res) ->{
             Map<String, Object> model = new HashMap<>();
-//            List<Hero> unRegisteredHeroes = new ArrayList<>();
-//            for(Hero hero : Hero.getAll()){
-//                if(hero.getHeroesSquad().equalsIgnoreCase("")){
-//                    unRegisteredHeroes.add(hero);
-//                }
-//            }
-//            model.put("unRegisteredHeroes", unRegisteredHeroes);
             return new ModelAndView(model, "squad-form.hbs");
         }, new HandlebarsTemplateEngine());
 
@@ -76,23 +84,37 @@ public class App {
         post("/squads/new", (req, res) ->{
             Map<String, Object> model = new HashMap<>();
             ArrayList<Hero> allHeroes = Hero.getAll();
+            List<Hero> squadMembers = new ArrayList<>();
+
             String squadName = req.queryParams("squadName");
+            req.session().attribute("squadName", squadName);
+            model.put("squadName", squadName);
+
             String course = req.queryParams("course");
+            req.session().attribute("course", course);
+            model.put("course", course);
+
             String heroName = req.queryParams("heroName");
-            Hero addThisHero = null;
+            req.session().attribute("heroName",heroName);
+            model.put("heroName", heroName);
             for(Hero hero : allHeroes){
-                if(hero.getName().equalsIgnoreCase(heroName)){
-                    addThisHero = hero;
-                    break;
+                if(heroName.equalsIgnoreCase(hero.getName())){
+                   squadMembers.add(hero);
+                }else{
+                    System.out.println("enter a valid hero");
                 }
             }
-            Squad newSquad = new Squad(squadName, course, addThisHero );
+            for(Hero heroToAdd : squadMembers){
+                Hero hero = heroToAdd;
+                Squad newSquad = new Squad(squadName, course, hero );
+                req.session().attribute("squad", newSquad);
+                model.put("squad", newSquad);
+            }
             return new ModelAndView(model, "success.hbs");
         }, new HandlebarsTemplateEngine());
 
 //    show all heroes
     get("/heroes", (req, res) ->{
-        Hero firstHero = new Hero("Iron man", 34, "money", "electricity");
         Map<String, ArrayList<Hero>> model = new HashMap<>();
         ArrayList yourHeroes = Hero.getAll();
         model.put("yourHeroes", yourHeroes);
@@ -101,12 +123,18 @@ public class App {
 
         //    show all squads
             get("/squads", (req, res) ->{
-            Squad firstSquad = new Squad("Guardians", "protect the galaxy", new Hero("Iron man", 34, "money", "electricity"));
             Map<String, ArrayList<Squad>> model = new HashMap<>();
             ArrayList yourSquads = Squad.getAllSquads();
             model.put("yourSquads", yourSquads);
-//            model.put("userName", req.session().attribute("userName"));
             return new ModelAndView(model, "squads.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/squads/:id", (req, res) ->{
+            Map<String, Object> model = new HashMap<>();
+            int selectedId = Integer.parseInt(req.queryParams(":id"));
+            Squad selectedSquad = Squad.findBySquadId(selectedId);
+            model.put("squad", selectedSquad);
+            return new ModelAndView(model, "squad-detail.hbs");
         }, new HandlebarsTemplateEngine());
 
     }
