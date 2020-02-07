@@ -22,12 +22,12 @@
                 <p id="heroTitle">Squad</p>
                 <li><p>Squad name: {{ squadName }}</p></li>
                 <li><p>Squad course: {{ course }}</p></li>
-        {{#if squadMembers}}
-                <p>{{ hero.name }}</p>
-        {{else}}
-            <p>You have not added any heroes</p>
-            {{/if}}
             {{/each}}
+            {{#if squadMembers}}
+                <p>{{ hero.name }}</p>
+            {{else}}
+                <p>You have not added any heroes to your squad</p>
+            {{/if}}
         </ul>
     </div>
 {{/partial}}
