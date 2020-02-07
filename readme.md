@@ -5,6 +5,7 @@
 ## Description
 Hero Squad is a project that allows a user to create heroes and squads that contain a particular number of heroes. 
 Heroes can belong to only 1 squad at a time.The app analyses the squads strengths and weaknesses.
+[view project](https://hero-squad745.herokuapp.com/)
 
 ## Technologies used
 * HTML

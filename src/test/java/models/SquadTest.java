@@ -36,7 +36,7 @@ public class SquadTest {
     public void getterMethodsCanRetrieveValues(){
         Squad squad = testSquad(testHero());
         assertEquals("Hellhound", squad.getSquadName());
-        assertEquals("killing", squad.getCause());
+        assertEquals("killing", squad.getCourse());
     }
 
     @Test
@@ -56,14 +56,6 @@ public class SquadTest {
         assertEquals(4, squad1.getAll().size());
         assertTrue(squad1.squadIsMaximum());
     }
-
-//    @Test
-//    public void setMethodsCanChangeAvalue(){
-//        testSquad(testHero()).setSquadName("change mission");
-//        testSquad(testHero()).setCause("lesser evil");
-//        assertEquals("change mission", testSquad(testHero()).getSquadName());
-//        assertEquals("lesser evil", testSquad(testHero()).getCause());
-//    }
 
     @Before
     public void setUp() throws Exception {
